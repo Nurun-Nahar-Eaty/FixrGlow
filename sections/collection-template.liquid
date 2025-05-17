@@ -1,0 +1,26 @@
+<section class="collection">
+  <h1>{{ collection.title }}</h1>
+  <div class="product-grid">
+    {% for product in collection.products %}
+      <div class="product-item">
+        <a href="{{ product.url }}">
+          <img
+            src="{{ product.featured_image | img_url: 'medium' }}"
+            alt="{{ product.title }}"
+            width="auto"
+            height="auto"
+            loading="lazy"
+          >
+          <p>{{ product.title }}</p>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Collection Template",
+  "settings": []
+}
+{% endschema %}

@@ -1,44 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "t:sections.header.name",
+  "name": "Header group",
   "type": "header",
   "sections": {
-    "announcement-bar": {
+    "announcement": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ]
+      "settings": {
+        "text": "Welcome to our store!",
+        "link": "",
+        "background_color": "#c1c1c1",
+        "text_color": "#000000"
+      }
     },
     "header": {
       "type": "header",
+      "name": "head",
       "settings": {
-        "color_scheme": "scheme-1",
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "background_color": "#000000",
+        "layout_type": "style1",
+        "brand_logo": "shopify://shop_images/etsy_logo.png",
+        "logo_width": 200,
+        "logo_height": 40,
+        "nav_menu": "main-menu",
+        "main_color": "#ffffff",
+        "accent_color": "#c8f000",
+        "sticky_header": true
       }
     }
   },
   "order": [
-    "announcement-bar",
+    "announcement",
     "header"
   ]
 }

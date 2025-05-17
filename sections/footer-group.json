@@ -1,49 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer group",
   "type": "footer",
   "sections": {
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
-          "type": "link_list",
+        "about_QyEaJE": {
+          "type": "about",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "title": "About Us",
+            "description": "<p>Learn more about our store.</p>",
+            "width": "25%"
           }
         },
-        "footer-1": {
-          "type": "link_list",
+        "menu_zQkgGh": {
+          "type": "menu",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "menu": "main-menu",
+            "title": "Service",
+            "width": "25%"
           }
         },
-        "footer-2": {
-          "type": "text",
+        "menu_nTMA3n": {
+          "type": "menu",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "menu": "main-menu",
+            "title": "Service",
+            "width": "25%"
+          }
+        },
+        "menu_pAYeYy": {
+          "type": "menu",
+          "settings": {
+            "menu": "main-menu",
+            "title": "Service",
+            "width": "25%"
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "about_QyEaJE",
+        "menu_zQkgGh",
+        "menu_nTMA3n",
+        "menu_pAYeYy"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "container": "w-full",
+        "bordered": false,
+        "copyright": "© ecomfixr 2021",
+        "show_payment_icons": false,
+        "payment_icons_width": 300
       }
     }
   },
