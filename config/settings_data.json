@@ -13,6 +13,7 @@
     "secondary_color": "#4682b4",
     "body_font": "helvetica_n4",
     "heading_font": "times_new_roman_n4",
+    "body_scale": 150,
     "sections": {
       "header": {
         "type": "header",

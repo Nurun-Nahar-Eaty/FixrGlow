@@ -1,53 +1,55 @@
 <footer class="fixr-footer" data-section-type="footer" data-section-id="{{ section.id }}">
-  {% for block in section.blocks %}
-    {% liquid
-      case block.settings.width
-        when '16%'
-          assign block_width = 'lg:w-1/6'
-        when '20%'
-          assign block_width = 'lg:w-1/5'
-        when '25%'
-          assign block_width = 'lg:w-1/4'
-        when '33%'
-          assign block_width = 'lg:w-1/3'
-        when '50%'
-          assign block_width = 'lg:w-1/2'
-        when '66%'
-          assign block_width = 'lg:w-2/3'
-        when '75%'
-          assign block_width = 'lg:w-3/4'
-        when '83%'
-          assign block_width = 'lg:w-10/12'
-        when '100%'
-          assign block_width = 'lg:w-full'
-      endcase
-    %}
-    <div class="fixr_footer__block" w-full {{ block_width }}>
-      {% case block.type %}
-        {% when 'menu' %}
-          <h3>{{ block.settings.title | default: linklists[block.settings.menu].title }}</h3>
-          <ul>
-            {% for link in linklists[block.settings.menu].links %}
-              <li>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% when 'about' %}
-          <h3>{{ block.settings.title }}</h3>
-          <div>{{ block.settings.description }}</div>
-        {% when 'newsletter' %}
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.description }}</p>
-          <input type="email" placeholder="{{ block.settings.email_placeholder }}">
-        {% when 'custom_text' %}
-          <h3>{{ block.settings.title }}</h3>
-          <div>{{ block.settings.content }}</div>
-        {% when 'custom_html' %}
-          <h3>{{ block.settings.title }}</h3>
-      {% endcase %}
-    </div>
-  {% endfor %}
+  <div class="fixr-footer__blocks">
+    {% for block in section.blocks %}
+      {% liquid
+        case block.settings.width
+          when '16%'
+            assign block_width = 'lg:w-1/6'
+          when '20%'
+            assign block_width = 'lg:w-1/5'
+          when '25%'
+            assign block_width = 'lg:w-1/4'
+          when '33%'
+            assign block_width = 'lg:w-1/3'
+          when '50%'
+            assign block_width = 'lg:w-1/2'
+          when '66%'
+            assign block_width = 'lg:w-2/3'
+          when '75%'
+            assign block_width = 'lg:w-3/4'
+          when '83%'
+            assign block_width = 'lg:w-10/12'
+          when '100%'
+            assign block_width = 'lg:w-full'
+        endcase
+      %}
+      <div class="fixr_footer__block {{ block_width }}">
+        {% case block.type %}
+          {% when 'menu' %}
+            <h3>{{ block.settings.title | default: linklists[block.settings.menu].title }}</h3>
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% when 'about' %}
+            <h3>{{ block.settings.title }}</h3>
+            <div>{{ block.settings.description }}</div>
+          {% when 'newsletter' %}
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+            <input type="email" placeholder="{{ block.settings.email_placeholder }}">
+          {% when 'custom_text' %}
+            <h3>{{ block.settings.title }}</h3>
+            <div>{{ block.settings.content }}</div>
+          {% when 'custom_html' %}
+            <h3>{{ block.settings.title }}</h3>
+        {% endcase %}
+      </div>
+    {% endfor %}
+  </div>
   <div class="fixr_footer__bottom">
     <p>{{ section.settings.copyright }}</p>
     {% if section.settings.show_payment_icons %}
@@ -69,45 +71,65 @@
     {% endif %}
   </div>
 </footer>
-
 <style>
-  .fixr-footer {
-    background: #1a1a1a;
-    color: #fff;
-    padding: 20px;
+    .fixr-footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+    }
+    .fixr-footer__blocks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
   }
-  .fixr_footer__block {
-    display: inline-block;
-    vertical-align: top;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  .fixr_footer__block h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  .fixr_footer__block ul {
-    list-style: none;
-    padding: 0;
-  }
-  .fixr_footer__block ul li a {
-    color: #00b7ff;
-    text-decoration: none;
-  }
-  .fixr_footer__spacer {
-    height: 20px;
-  }
-  .fixr_footer__bottom {
-    border-top: 1px solid #333;
-    padding-top: 10px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer__payment-icons img {
-    margin: 0 5px;
-  }
+    .fixr_footer__block {
+      padding: 10px;
+      box-sizing: border-box;
+      min-height: 150px;
+    }
+
+    @media (min-width: 1024px) {
+      .fixr-footer__blocks {
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .fixr_footer__block {
+        flex: 0 0 calc(50% - 10px);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .fixr_footer__block {
+        flex: 0 0 100%;
+      }
+    }
+
+    .fixr_footer__block h3 {
+      margin-bottom: 10px;
+    }
+    .fixr_footer__block ul {
+      list-style: none;
+      padding: 0;
+    }
+    .fixr_footer__block ul li a {
+      color: #00b7ff;
+      text-decoration: none;
+    }
+    .fixr_footer__bottom {
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer__payment-icons img {
+      margin: 0 5px;
+    }
 </style>
 
 {% schema %}

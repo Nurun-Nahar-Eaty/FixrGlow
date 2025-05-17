@@ -33,7 +33,18 @@
         "id": "heading_font",
         "label": "Heading Font",
         "default": "times_new_roman_n4"
-      }
+      },
+     {
+
+        "type": "range",
+        "id": "body_scale",
+        "label": "Body Font Scale (%)",
+        "min": 80,
+        "max": 150,
+        "step": 5,
+        "default": 100,
+        "info": "Adjust the base font scale for body text (percentage)."
+     }
     ]
   }
 ]
